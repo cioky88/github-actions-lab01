@@ -1,4 +1,4 @@
-name: My First GitHub Action
+name: Deploy Website
 
 on:
   push:
@@ -6,18 +6,27 @@ on:
       - main
 
 jobs:
-  hello:
+  deploy:
     runs-on: self-hosted
 
     steps:
-      - name: Hello from Ubuntu
-        run: echo "Hello! This job is running on my Ubuntu Server 24.04"
-
-      - name: Show hostname
-        run: hostname
-
-      - name: Show operating system
-        run: cat /etc/os-release
 
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Show files
+        run: |
+          echo "Repository files:"
+          ls -la
+
+      - name: Deploy website to Nginx
+        run: |
+          rsync -av --delete \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            ./ /var/www/html/
+
+      - name: Deployment completed
+        run: |
+          echo "Website deployed successfully"
+          ls -la /var/www/html/
