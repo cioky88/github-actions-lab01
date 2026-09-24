@@ -1,0 +1,20 @@
+name: My First GitHub Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hello:
+    runs-on: self-hosted
+
+    steps:
+      - name: Hello from Ubuntu
+        run: echo "Hello! This job is running on my Ubuntu Server 24.04"
+
+      - name: Show hostname
+        run: hostname
+
+      - name: Show operating system
+        run: cat /etc/os-release
