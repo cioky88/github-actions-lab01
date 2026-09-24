@@ -3,16 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demo website pentru GitHub Actions">
     <title>GitHub Actions Lab</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <h1>GitHub Actions Lab</h1>
+<header class="header">
+    <div class="container nav">
+        <a class="logo" href="#home">CI/CD <span>LAB</span></a>
 
-    <p>Prima versiune a site-ului meu.</p>
+        <button class="mobile-menu" id="mobileMenu" aria-label="Deschide meniul">☰</button>
 
-    <p>Version: 1.0</p>
+        <nav id="navMenu">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#pipeline">Pipeline</a>
+            <a href="#about">About</a>
+        </nav>
+    </div>
+</header>
 
+<main>
+    <section class="hero" id="home">
+        <div class="hero-glow glow-one"></div>
+        <div class="hero-glow glow-two"></div>
+
+        <div class="container hero-content reveal">
+            <div class="badge">● DEPLOYMENT ONLINE</div>
+            <h1>GitHub Actions<br><span>CI/CD Playground</span></h1>
+            <p>
+                Un site demonstrativ pentru testarea workflow-urilor GitHub Actions,
+                deployment automat și experimente DevOps.
+            </p>
+
+            <div class="hero-buttons">
+                <a class="btn primary" href="#pipeline">Vezi Pipeline-ul</a>
+                <button class="btn secondary" id="demoButton">Rulează Demo</button>
+            </div>
+
+            <div class="terminal">
+                <div class="terminal-bar">
+                    <span></span><span></span><span></span>
+                    <small>github-actions-lab</small>
+                </div>
+                <div class="terminal-body">
+                    <p><span class="prompt">$</span> git push origin main</p>
+                    <p class="terminal-line" id="terminalLine">Waiting for deployment...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-title reveal">
+                <p>FEATURES</p>
+                <h2>Un proiect simplu. Un pipeline real.</h2>
+            </div>
+
+            <div class="cards">
+                <article class="card reveal">
+                    <div class="icon">⚡</div>
+                    <h3>Fast Deploy</h3>
+                    <p>Modificările din branch-ul principal pot fi publicate automat pe server.</p>
+                </article>
+
+                <article class="card reveal">
+                    <div class="icon">⚙</div>
+                    <h3>Automation</h3>
+                    <p>GitHub Actions execută pașii configurați în workflow fără intervenție manuală.</p>
+                </article>
+
+                <article class="card reveal">
+                    <div class="icon">✓</div>
+                    <h3>Easy Testing</h3>
+                    <p>Poți adăuga verificări înainte de deployment pentru a detecta problemele.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pipeline-section" id="pipeline">
+        <div class="container">
+            <div class="section-title reveal">
+                <p>WORKFLOW</p>
+                <h2>Cum ajunge codul pe server</h2>
+            </div>
+
+            <div class="pipeline reveal">
+                <div class="pipeline-step">
+                    <strong>01</strong>
+                    <span>CODE</span>
+                    <small>Modifici proiectul</small>
+                </div>
+                <div class="connector"></div>
+                <div class="pipeline-step">
+                    <strong>02</strong>
+                    <span>PUSH</span>
+                    <small>git push</small>
+                </div>
+                <div class="connector"></div>
+                <div class="pipeline-step">
+                    <strong>03</strong>
+                    <span>ACTION</span>
+                    <small>Workflow pornește</small>
+                </div>
+                <div class="connector"></div>
+                <div class="pipeline-step">
+                    <strong>04</strong>
+                    <span>DEPLOY</span>
+                    <small>Site actualizat</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="container about reveal">
+            <div>
+                <p class="eyebrow">GITHUB ACTIONS LAB</p>
+                <h2>Creat pentru experimente CI/CD</h2>
+                <p>
+                    Pagina folosește HTML, CSS și JavaScript simplu, fără framework-uri.
+                    Este ideală pentru a vedea imediat dacă deployment-ul tău automat funcționează.
+                </p>
+            </div>
+
+            <div class="status-box">
+                <div><span>Status</span><strong class="online">ONLINE</strong></div>
+                <div><span>Environment</span><strong>Production</strong></div>
+                <div><span>Version</span><strong id="version">2.0.0</strong></div>
+                <div><span>Server</span><strong>NGINX</strong></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>GitHub Actions Lab • CI/CD Demo Project</p>
+        <p id="year"></p>
+    </div>
+</footer>
+
+<div class="toast" id="toast">✓ Deployment demo completed!</div>
+
+<script src="script.js"></script>
 </body>
 </html>
